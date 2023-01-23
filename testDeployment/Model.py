@@ -20,4 +20,7 @@ X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.3,random_sta
 lm = LinearRegression()
 lm.fit(X_train, y_train)
 
-pickle.dump(lm,open('model.pickle','wb'))
+test_df = pd.DataFrame({'Avg. Area Income':[40000], 'Avg. Area House Age':[5], 'Avg. Area Number of Rooms':[5],'Avg. Area Number of Bedrooms':[3],'Area Population':[90000]})
+print(lm.predict(test_df))
+
+pickle.dump(lm,open('model.pkl','wb'))
